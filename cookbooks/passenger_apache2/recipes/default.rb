@@ -36,7 +36,7 @@ else
   end
 end
 
-gem_package "passenger" do
+chef_gem "passenger" do
   version node[:passenger][:version]
 end
 

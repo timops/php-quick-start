@@ -18,4 +18,6 @@
 # limitations under the License.
 #
 
-gem_package "unicorn"
+chef_gem "unicorn" do
+  action :install
+end

@@ -26,9 +26,9 @@ begin
     h['username'] = u['id']
     if u['ssh_keys']
       # redundant since net-ssh is a dependency of chef...but you never know!
-      gem_package "net-ssh" do
-        action :nothing
-      end.run_action(:install)
+      chef_gem "net-ssh" do
+        action :install
+      end
       require 'net/ssh'
       h['key_fingerprint'] = Net::SSH::KeyFactory.load_data_public_key(u['ssh_keys']).fingerprint
     end

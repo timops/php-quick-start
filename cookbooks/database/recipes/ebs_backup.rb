@@ -37,8 +37,13 @@ end
 
 ebs_info = Chef::DataBagItem.load(:aws, "ebs_#{db_master_role}_#{node.chef_environment}")
 
-gem_package "dbi"
-gem_package "dbd-mysql"
+chef_gem "dbi" do
+  action :install
+end
+
+chef_gem "dbd-mysql" do
+  action :install
+end
 
 directory "/mnt/aws-config" do
   mode 0700

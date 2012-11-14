@@ -53,7 +53,7 @@ if platform?(%w{ debian ubuntu redhat centos fedora suse })
 
 else
 
-  gem_package "mysql" do
+  chef_gem "mysql" do
     action :install
   end
 
