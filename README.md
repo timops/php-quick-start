@@ -169,7 +169,7 @@ Launch the entire stack on a single instance.
 
     knife ec2 server create -G default -I ami-7000f019 -f m1.small \
       -S php-quick-start -i ~/.ssh/php-quick-start.pem -x ubuntu \
-      -r 'role[base],role[mediawiki_database_master],role[mediawiki],recipe[mediawiki::db_bootstrap],role[mediawiki_load_balancer]'
+      -r 'role[base],role[mediawiki],role[mediawiki_database_master],recipe[mediawiki::db_bootstrap],role[mediawiki_load_balancer]'
 
 Once complete, the instance will be running MySQL and MediaWiki under Apache2 + mod_php. With only one system, a load balancer is unnecessary.
 
@@ -264,7 +264,7 @@ See the [launch cloud instances page](http://wiki.opscode.com/display/chef/Launc
 For people not using cloud at all, but have their own infrastructure and hardware, use the [bootstrap](http://wiki.opscode.com/display/chef/Knife+Bootstrap) knife command. Note that the run-list specification is slightly different. For the first example of the single instance:
 
     knife bootstrap IPADDRESS \
-    -r 'role[base],role[mediawiki_database_master],role[mediawiki],recipe[mediawiki::db_bootstrap],role[mediawiki_load_balancer]'
+    -r 'role[base],role[mediawiki],role[mediawiki_database_master],recipe[mediawiki::db_bootstrap],role[mediawiki_load_balancer]'
 
 See the contextual help for knife bootstrap on the additional options to set for SSH.
 
